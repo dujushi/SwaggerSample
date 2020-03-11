@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -40,6 +41,16 @@ namespace SwaggerSample.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        /// <summary>
+        /// This is a protected endpoint.
+        /// </summary>
+        [Authorize]
+        [HttpPost]
+        public void Protected()
+        {
+
         }
     }
 }
