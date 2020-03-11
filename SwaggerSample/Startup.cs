@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,9 @@ namespace SwaggerSample
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+                var filePath = Path.Combine(AppContext.BaseDirectory, "SwaggerSample.xml");
+                c.IncludeXmlComments(filePath);
             });
         }
 
