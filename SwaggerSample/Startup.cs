@@ -57,6 +57,7 @@ namespace SwaggerSample
                 c.IncludeXmlComments(filePath);
 
                 c.OperationFilter<UnauthorizedResponseOperationFilter>();
+                c.OperationFilter<ForbiddenResponseOperationFilter>();
                 c.OperationFilter<InternalServerErrorResponseOperationFilter>();
             });
         }

@@ -52,5 +52,15 @@ namespace SwaggerSample.Controllers
         {
 
         }
+
+        /// <summary>
+        /// This is a protected endpoint with policy.
+        /// </summary>
+        [Authorize(Policy = "Policy")]
+        [HttpPost("Forbidden")]
+        public void Forbidden()
+        {
+
+        }
     }
 }
