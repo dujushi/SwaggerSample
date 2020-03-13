@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SwaggerSample.Swagger.OperationFilters;
 
 namespace SwaggerSample
 {
@@ -54,6 +55,8 @@ namespace SwaggerSample
 
                 var filePath = Path.Combine(AppContext.BaseDirectory, "SwaggerSample.xml");
                 c.IncludeXmlComments(filePath);
+
+                c.OperationFilter<UnauthorizedResponseOperationFilter>();
             });
         }
 
